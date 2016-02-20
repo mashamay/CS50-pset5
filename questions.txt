@@ -1,0 +1,20 @@
+0.  The longest work in English dictionary
+1.  getrusage returns resource usage
+2.  16
+3.  Before and after is not hardcoded because they may change after the code modification
+
+4.  Read each character until end of file. If the character is a letter or an appostrophe add it 
+    to the word. If the word is too long and we have not reached end of file and the character is a letter
+    - set index to 0. If char is a digit - set index to 0. If index is greater than 0 add /0 character 
+    to the word and increase word count. Check the spelling, set index to 0 and start a new word.
+     
+5.  fgetc() reads character-by-character from a stream. This will enable us to keep track of the number of 
+    chars we read, while using fscanf(), on the other hand, might get us into trouble if a longer string 
+    than we expect was read. This might overwrite other important data in memory or probably makes our 
+    program exist with a segmentation fault.
+    
+6. Because the control flow of speller prints out the misspelled words, the staff doesn't want us to change the actual string they pass.
+7. I used a hash table. Each element of my array is initialized to NULL. New words are placed in nodes. The hash function indicates where in the array the word should be inserted into and then the node at that array points to the new node. To prevent collisions, a linked list is used to chain words together that are indexed to the same place in the array.
+8. My code started of having a run time of 'n' because all the elements were being placed in the same place of the array. 
+9. I tried coming up with different hash functions that speed up my load and check time, like indexing by first letter in word and adding up the ASCII value of the word. I eventually found the hash function I'm using online and made some modifications to improve its performance. I also found that increasing the SIZE (the size of the hash table) increased speed. 
+10. The check time is still not as great as I would like. I think the code is slowing down in the check time because multiple elements are being placed in each index of the hash table. If I had more time, I would have liked to find a way to decrease collisions and, therefore, check time. 
